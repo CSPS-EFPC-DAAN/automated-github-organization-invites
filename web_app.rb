@@ -26,6 +26,9 @@ end
 html_template_path = File.join(__dir__, 'views', 'index.slim')
 @layout = File.read(html_template_path)
 
+html_template_path = File.join(__dir__, 'views', 'add.slim')
+@add = File.read(html_template_path)
+
 client = Octokit::Client.new(access_token: token)
 
 def user_exists?(client, user)
@@ -87,7 +90,7 @@ post "/add" do
   if user_exists?(client, params["github"])
     client.update_organization_membership(org_name, :user => params["github"])
     client.add_team_membership(team_id, params["github"])
-    "Invite sent! Check the inbox associated with your Github account. If you do not receive an invite post on the #help-me channel in Slack."
+    slim l.render(Object.new, :avatar => avatar, :org_name => org_name, :background_css => background_css)
   else
     "User not found. Utilisateur non trouvé."
   end
