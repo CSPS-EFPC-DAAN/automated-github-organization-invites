@@ -79,6 +79,7 @@ avatar = get_org_avatar_url(client, org_name)
 org_id = get_org_id(client, org_name)
 
 l = Slim::Template.new { @layout }
+a = Slim::Template.new { @add }
 
 # ROUTES #
 
@@ -90,7 +91,7 @@ post "/add" do
   if user_exists?(client, params["github"])
     client.update_organization_membership(org_name, :user => params["github"])
     client.add_team_membership(team_id, params["github"])
-    slim l.render(Object.new, :avatar => avatar, :org_name => org_name, :background_css => background_css)
+    slim a.render(Object.new, :avatar => avatar, :org_name => org_name, :background_css => background_css)
   else
     "User not found. Utilisateur non trouvé."
   end
