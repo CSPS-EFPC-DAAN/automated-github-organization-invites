@@ -87,7 +87,7 @@ post "/add" do
   if user_exists?(client, params["github"])
     client.update_organization_membership(org_name, :user => params["github"])
     client.add_team_membership(team_id, params["github"])
-    "Check your email. Vérifiez votre email."
+    "Invite sent! Check the inbox associated with your Github account. If you do not receive an invite post on the #help-me channel in Slack."
   else
     "User not found. Utilisateur non trouvé."
   end
