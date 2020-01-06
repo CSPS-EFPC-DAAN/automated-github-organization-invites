@@ -14,7 +14,7 @@
 
 ### Get It Right Now
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/thundergolfer/automated-github-organization-invites)
 
 All you have to do is
 
